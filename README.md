@@ -1,4 +1,5 @@
 # CFS App in Rust
+<<<<<<< HEAD
 This crate provides bindings to the NASA [Core Flight Executive
 (CFE)](https://github.com/nasa/cFE) and [Operational System Abstraction Layer
 (OSAL)](https://github.com/nasa/osal). These provide a core set of
@@ -19,6 +20,19 @@ There is an example of such an app at:
 
 This project has been tested with the i686-unknown-linux-gnu target
 by building the POSIX implementation of OSAL.
+=======
+This project is a prototype CFS application written in Rust.
+
+
+The best case here is that this turns into a way to create new
+CFS Apps in Rust, taking care of the boilerplate, the binding
+generation, and integration with the CFS system.
+
+
+## Building
+This project has been tested with the i686-unknown-linux-gnu target
+by building the POSIX version of OSAL.
+>>>>>>> be19f9f8f42ef8ec63ab56f0f1fc2f5676aa54e7
 
 
 To get this target using rustup, type
@@ -26,6 +40,7 @@ To get this target using rustup, type
 rustup target add i686-unknown-linux-gnu
 ```
 
+<<<<<<< HEAD
 To build this project, you need the following environment variables defined:
 
 
@@ -49,6 +64,9 @@ the necessary environment variables:
 ```shell
 . ./setvars.sh
 ```
+=======
+This project also currently assumes you have the CFE repo as a submodule.
+>>>>>>> be19f9f8f42ef8ec63ab56f0f1fc2f5676aa54e7
 
 
 ##The Concept
@@ -70,6 +88,7 @@ may not be a good idea.
 The library is configured to build a shared library, which in principal can
 be loaded by CFE as a CFS application. This is yet to be seen.
 
+<<<<<<< HEAD
 
 ## Note on Shared Object Size
 When using the cfs-sys crate to write a CFS App, I've noticed that
@@ -84,6 +103,34 @@ assist in uploading new code through a slow, intermittent connection.
 
 Compression with xz gets this down to 79KB, which is better, but still not
 great.
+=======
+## Enhancements
+It would be better to allow the user to point to a CFS project, and build
+bindings from that. If the app is integrated into the CFS project, the
+environmental variables should be able to cover that.
+
+
+There might be a way to integrate with CFS so that the app is built with the
+makefile system and gets packaged up just like a normal application.
+In this case the user simply needs cargo installed, and the correct toolchain.
+This may allow the correct OS bindings in OSAL and PSP when doing binding
+generation to make this a more general solution.
+
+
+This may end up as a template for writing CFS apps, where you essentially clone the
+app, or there is a builder that outputs an app of a particular name, and you
+include it in your project as usual.
+
+
+## Notes
+About 5MB by default, with or without lto=true.
+
+
+Gets down to 2MB with strip.
+
+
+Other CFS apps are 8KB to 20KB or so.
+>>>>>>> be19f9f8f42ef8ec63ab56f0f1fc2f5676aa54e7
 
 ## Macros in CFS
 There are macros with arguments (aka inline functions) used in certain CFE modules.

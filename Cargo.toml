@@ -2,6 +2,10 @@
 name = "cfs-sys"
 version = "0.1.0"
 authors = ["nsmryan <nsmryan@gmail.com>"]
+readme="README.md"
+keywords=["space", "sys", "ffi", "bindgen", "cfs"]
+categories=["api-bindings", "embedded"]
+homepage="https://github.com/nsmryan/cfs-sys"
 
 [lib]
 name="cfs_sys"
@@ -9,6 +13,4 @@ crate-type=["rlib"]
 
 [build-dependencies]
 bindgen="0.26.3"
-
-[dependencies]
 

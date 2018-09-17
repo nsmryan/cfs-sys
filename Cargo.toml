@@ -1,0 +1,14 @@
+[package]
+name = "cfs-sys"
+version = "0.1.0"
+authors = ["nsmryan <nsmryan@gmail.com>"]
+
+[lib]
+name="cfs_sys"
+crate-type=["rlib"]
+
+[build-dependencies]
+bindgen="0.26.3"
+
+[dependencies]
+

@@ -6,6 +6,7 @@ readme="README.md"
 keywords=["space", "sys", "ffi", "bindgen", "cfs"]
 categories=["api-bindings", "embedded"]
 homepage="https://github.com/nsmryan/cfs-sys"
+license="MIT"
 
 [lib]
 name="cfs_sys"

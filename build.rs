@@ -106,9 +106,14 @@ fn main() {
           // Define operating system for network_includes.h in CFE
           .clang_arg("-D_LINUX_OS_")
 
+          .generate_inline_functions(true)
           .generate()
           .expect("Unable to generate bindings!");
 
+    let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
+
     // write out bindings to the source directory, where they are re-exported.
-    bindings.write_to_file("src/bindings.rs").expect("Couldn't write bindings");
+    //bindings.write_to_file("src/bindings.rs").expect("Couldn't write bindings");
+    bindings.write_to_file(out_path.join("bindings.rs"))
+            .expect("Couldn't write bindings");
 }

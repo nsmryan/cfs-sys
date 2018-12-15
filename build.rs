@@ -106,6 +106,8 @@ fn main() {
           // Define operating system for network_includes.h in CFE
           .clang_arg("-D_LINUX_OS_")
 
+          // This should generate functions from macros with arguments, but
+          // does not. I'm not sure what is wrong here.
           .generate_inline_functions(true)
           .generate()
           .expect("Unable to generate bindings!");

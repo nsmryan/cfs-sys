@@ -17,6 +17,11 @@ it the CFS build process. This build process would set up the necessary environm
 and start the process of building the CFS App with cargo, which would generate the
 necessary bindings at that time.
 
+
+I'm working on an example CFS system that uses these bindings to include a CFS App
+written in Rust, to show how you could include Rust in a CFS system.
+The project can be found (here)[https://github.com/nsmryan/cfs\_app\_rs].
+
 ## Building
 The intent of this project is that it would be included in
 CFS Apps integrated into the CFS build process. In this case,
@@ -64,7 +69,7 @@ the necessary environment variables:
 ## Note on Shared Object Size
 When using the cfs-sys crate to write a CFS App, I've noticed that
 I get a .so file 3MB by default, with lto=true and panic='abort'. Stripping
-this gets down to about 200KOB.
+this gets down to about 200 KB.
 
 
 For reference, other CFS apps are 8KB to 20KB or so. This works fine for
@@ -73,7 +78,7 @@ assist in uploading new code through a slow, intermittent connection.
 
 
 Compression with xz gets this down to 79KB, which is better, but still not
-great.
+as good as a C module.
 
 ## Macros in CFS
 There are macros with arguments (aka inline functions) used in certain CFE modules.
